@@ -6,12 +6,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import React, { useState } from 'react';
 
 const Home = () => {
-  const [age, setAge] = useState('');
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
-  };
-  return <div></div>;
+  return <div>yo</div>;
 };
 
 export default Home;
