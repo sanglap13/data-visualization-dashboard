@@ -3,12 +3,16 @@ import { apiResponse } from '../../../@types/api/api.types';
 
 const API_URL = 'http://20.121.141.248:5000/assignment/feb/sde_fe';
 
-export const api = async () => {
+export const api = async (): Promise<apiResponse | undefined> => {
   try {
     const response = await axios.get(API_URL);
-    console.log(response);
-    // localStorage.setItem(response.data);
+    console.log(response.data);
+    if (response.status) {
+      return response.data;
+    } else {
+      alert('status: failed');
+    }
   } catch (error) {
-    // console.log(error.message);
+    console.error('Error fetching data:', error);
   }
 };
