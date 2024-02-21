@@ -1,4 +1,4 @@
-type userInfo = {
+export type userInfo = {
   device_brand: string;
   model: string;
   processor: string;
