@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { api } from '../../../utils/api/api';
 import {
   BarChart,
@@ -11,19 +11,19 @@ import {
 import './home.css';
 
 const Home = () => {
-  const getUserData = async () => {
+  const getUserData = useCallback(async () => {
     const storedData = localStorage.getItem('userData');
     if (storedData !== null) {
       const userData = await JSON.parse(storedData);
       const { data } = userData;
-      // setTableData(data);
+      setTableData(data);
       console.log('localStorage', userData);
     } else {
       const userData = await api();
       // setTableData(userData);
       console.log('apiCall', userData);
     }
-  };
+  }, []);
 
   useEffect(() => {
     getUserData();
