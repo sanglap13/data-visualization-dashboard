@@ -11,13 +11,13 @@ import {
 import './home.css';
 
 const Home = () => {
-  const getUserData = () => {
-    const data = api();
-  };
+  // const getUserData = () => {
+  //   const data = api();
+  // };
 
-  useEffect(() => {
-    getUserData();
-  }, [getUserData]);
+  // useEffect(() => {
+  //   getUserData();
+  // }, [getUserData]);
 
   return (
     <div className="home">
