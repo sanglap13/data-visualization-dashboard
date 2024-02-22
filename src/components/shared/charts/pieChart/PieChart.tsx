@@ -1,7 +1,7 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
 
-const PieChart = () => {
+const PieChart: React.FC<any> = ({ pieData, pieFill }) => {
   const data = [
     {
       id: 'make',
@@ -36,7 +36,7 @@ const PieChart = () => {
   ];
   return (
     <ResponsivePie
-      data={data}
+      data={pieData}
       margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
       padAngle={0.7}
       cornerRadius={3}
@@ -75,56 +75,7 @@ const PieChart = () => {
           spacing: 10,
         },
       ]}
-      fill={[
-        {
-          match: {
-            id: 'ruby',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'c',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'go',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'python',
-          },
-          id: 'dots',
-        },
-        {
-          match: {
-            id: 'scala',
-          },
-          id: 'lines',
-        },
-        {
-          match: {
-            id: 'lisp',
-          },
-          id: 'lines',
-        },
-        {
-          match: {
-            id: 'elixir',
-          },
-          id: 'lines',
-        },
-        {
-          match: {
-            id: 'javascript',
-          },
-          id: 'lines',
-        },
-      ]}
+      fill={pieFill}
       legends={[
         {
           anchor: 'bottom',

@@ -3,6 +3,7 @@ import { Home } from './components/pages';
 import { MainContainer, Navbar, Sidebar } from './components/shared';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { api } from './utils/api/api';
+import { CssBaseline } from '@mui/material';
 
 const App = () => {
   const getApiData = useCallback(async () => {
@@ -18,7 +19,8 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Sidebar /> */}
+        <CssBaseline />
+        <Sidebar />
         <main>
           <Navbar />
           <Routes>
