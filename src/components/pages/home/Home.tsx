@@ -11,13 +11,20 @@ import {
 import './home.css';
 
 const Home = () => {
-  // const getUserData = () => {
-  //   const data = api();
-  // };
+  const getUserData = async () => {
+    const storedData = localStorage.getItem('userData');
+    if (storedData !== null) {
+      const userData = await JSON.parse(storedData);
+      console.log('localStorage', userData);
+    } else {
+      const userData = await api();
+      console.log('apiCall', userData);
+    }
+  };
 
-  // useEffect(() => {
-  //   getUserData();
-  // }, [getUserData]);
+  useEffect(() => {
+    getUserData();
+  }, [getUserData]);
 
   return (
     <div className="home">
