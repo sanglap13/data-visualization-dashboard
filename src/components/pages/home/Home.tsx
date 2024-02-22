@@ -16,7 +16,7 @@ const Home = () => {
     if (storedData !== null) {
       const userData = await JSON.parse(storedData);
       const { data } = userData;
-      setTableData(data);
+      // setTableData(data);
       console.log('localStorage', userData);
     } else {
       const userData = await api();
