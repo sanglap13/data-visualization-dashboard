@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { apiResponse, userInfo } from '../../../@types/api/api.types';
+import { apiResponse } from '../../@types/api/api.types';
 
 const API_URL = 'http://20.121.141.248:5000/assignment/feb/sde_fe';
 

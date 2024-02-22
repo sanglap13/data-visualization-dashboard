@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { api } from '../../utils/api/api';
+import { api } from '../../../utils/api/api';
+import { MainContainer } from '../../shared';
 
 const Home = () => {
   const getUserData = () => {
@@ -10,7 +11,11 @@ const Home = () => {
     getUserData();
   }, [getUserData]);
 
-  return <div>yo</div>;
+  return (
+    <div>
+      <MainContainer />
+    </div>
+  );
 };
 
 export default Home;

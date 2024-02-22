@@ -1,12 +1,19 @@
 import React from 'react';
 import { Home } from './components/pages';
+import { MainContainer, Navbar } from './components/shared';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Home />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/users" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;
