@@ -11,15 +11,19 @@ const Navbar = () => {
   const theme = useTheme();
 
   return (
-    <div>
+    <div className="navbar">
       <Box
         display="flex"
         justifyContent="space-between"
         p={2}
-        sx={{ backgroundColor: '#2a3447' }}
+        sx={{ backgroundColor: '#cccccc' }}
       >
         {/* SEARCH BAR */}
-        <Box display="flex" borderRadius="3px">
+        <Box
+          display="flex"
+          borderRadius="3px"
+          sx={{ backgroundColor: '#737373' }}
+        >
           <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
           <IconButton type="button" sx={{ p: 1 }}>
             <SearchIcon />

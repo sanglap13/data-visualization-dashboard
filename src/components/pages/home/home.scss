@@ -1,0 +1,18 @@
+.home {
+  .cards-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  .details-container {
+    .data-table {
+    }
+  }
+}
+
+@media (width < 650px) {
+  .cards-container {
+    flex-direction: column;
+  }
+}
