@@ -1,45 +1,7 @@
-/* .home {
-  height: 100%;
-  .cards-container {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .middle-container {
-    display: flex;
-    padding: 1rem;
-    flex-wrap: wrap;
-
-    .data-table {
-      height: 50rem;
-      border: 1px solid black;
-      padding: 1rem;
-    }
-
-    .charts {
-      display: flex;
-      flex-direction: column;
-      .pie-chart {
-        border: 1px solid black;
-        display: flex;
-        padding: 1rem;
-        height: 24rem;
-      }
-
-      .bar-chart {
-        border: 1px solid black;
-        height: 24rem;
-        padding: 1rem;
-      }
-    }
-  }
-} */
-
 .home {
   width: 100%;
-  height: 100%;
+  height: 200vh;
+  min-height: fit-content;
 }
 .cards-container {
   display: flex;
@@ -58,6 +20,7 @@
   border: 1px solid black;
   padding: 1rem;
   width: 100%;
+  flex: 1;
 }
 .data-table .data-table-header {
   display: flex;
@@ -68,6 +31,7 @@
   flex-direction: column;
   gap: 1rem;
   width: 100%;
+  flex: 2;
 }
 .pie-chart {
   border: 1px solid black;
@@ -80,6 +44,21 @@
   border: 1px solid black;
   height: 24rem;
   padding: 1rem;
+}
+.bottom-container {
+  padding: 1rem;
+  gap: 1rem;
+  display: flex;
+  justify-content: space-around;
+  /* height: 20rem; */
+  width: 100%;
+}
+.bottom-charts {
+  border: 1px solid black;
+  height: 24rem;
+  padding: 1rem;
+  width: 100%;
+  gap: 1rem;
 }
 
 @media (width < 650px) {
