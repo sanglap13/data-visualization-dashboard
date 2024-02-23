@@ -1,6 +1,5 @@
 .home {
-  width: 100%;
-  height: 200vh;
+  /* width: 100%; */
   min-height: fit-content;
 }
 .cards-container {
@@ -51,13 +50,12 @@
   display: flex;
   justify-content: space-around;
   /* height: 20rem; */
-  width: 100%;
 }
 .bottom-charts {
   border: 1px solid black;
   height: 24rem;
-  padding: 1rem;
   width: 100%;
+  padding: 1rem;
   gap: 1rem;
 }
 
