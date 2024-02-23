@@ -203,12 +203,8 @@ const Home = () => {
         <div className="bottom-charts">
           <BarChart />
         </div>
-        <div className="bottom-charts">
-          <PieChart />
-        </div>
-        <div className="bottom-charts">
-          <PieChart />
-        </div>
+        <div className="bottom-charts">{/* <PieChart /> */}</div>
+        <div className="bottom-charts">{/* <PieChart /> */}</div>
       </div>
     </div>
   );
