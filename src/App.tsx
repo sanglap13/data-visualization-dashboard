@@ -8,7 +8,7 @@ import { CssBaseline } from '@mui/material';
 const App = () => {
   const getApiData = useCallback(async () => {
     const userData = await api();
-    localStorage.setItem('userData', JSON.stringify(userData));
+    sessionStorage.setItem('userData', JSON.stringify(userData));
     console.log(userData);
   }, []);
 

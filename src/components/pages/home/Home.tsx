@@ -10,14 +10,48 @@ import {
 
 import './home.css';
 
+interface Column {
+  id:
+    | 'device_brand'
+    | 'model'
+    | 'processor'
+    | 'sdk_int'
+    | 'username'
+    | 'vehicle_brand'
+    | 'vehicle_cc'
+    | 'vehicle_type'
+    | 'zone';
+  label: string;
+  minWidth?: number;
+  align?: 'right';
+  format?: (value: number) => string;
+}
+interface Data {
+  device_brand: string;
+  model: string;
+  processor: string;
+  sdk_int: number;
+  username: string;
+  vehicle_brand: string;
+  vehicle_cc: string;
+  vehicle_type: string;
+  zone: string;
+}
+
 const Home = () => {
+  // states for dataTable
+  const [tableData, setTableData] = useState([]);
+  const [tablePage, setTablePage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  //fetching data from api or sessionStorage
   const getUserData = useCallback(async () => {
-    const storedData = localStorage.getItem('userData');
+    const storedData = sessionStorage.getItem('userData');
     if (storedData !== null) {
       const userData = await JSON.parse(storedData);
       const { data } = userData;
       setTableData(data);
-      console.log('localStorage', userData);
+      console.log('sessionStorage', userData);
     } else {
       const userData = await api();
       // setTableData(userData);
@@ -25,14 +59,7 @@ const Home = () => {
     }
   }, []);
 
-  useEffect(() => {
-    getUserData();
-  }, [getUserData]);
-
-  //=================================================table
-  const [tableData, setTableData] = useState([]);
-  const [tablePage, setTablePage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  //handleChanges for Datatable
   const handleChangePage = (event: unknown, newPage: number) => {
     setTablePage(newPage);
   };
@@ -42,23 +69,8 @@ const Home = () => {
     setRowsPerPage(+event.target.value);
     setTablePage(0);
   };
-  interface Column {
-    id:
-      | 'device_brand'
-      | 'model'
-      | 'processor'
-      | 'sdk_int'
-      | 'username'
-      | 'vehicle_brand'
-      | 'vehicle_cc'
-      | 'vehicle_type'
-      | 'zone';
-    label: string;
-    minWidth?: number;
-    align?: 'right';
-    format?: (value: number) => string;
-  }
 
+  //integrating data for dataTable
   const columns: readonly Column[] = [
     { id: 'username', label: 'Username', minWidth: 170 },
     { id: 'device_brand', label: 'Device Brand', minWidth: 100 },
@@ -71,22 +83,10 @@ const Home = () => {
     { id: 'zone', label: 'Zone', minWidth: 170 },
   ];
 
-  interface Data {
-    device_brand: string;
-    model: string;
-    processor: string;
-    sdk_int: number;
-    username: string;
-    vehicle_brand: string;
-    vehicle_cc: string;
-    vehicle_type: string;
-    zone: string;
-  }
-
   const rows: Data[] = tableData;
   console.log('rows', rows);
 
-  //=================================piechart
+  //piechart
   const pieData = [
     {
       id: 'make',
@@ -119,6 +119,11 @@ const Home = () => {
       color: 'hsl(237, 70%, 50%)',
     },
   ];
+
+  //fetching data from api or sessionStorage
+  useEffect(() => {
+    getUserData();
+  }, [getUserData]);
 
   return (
     <div className="home">
