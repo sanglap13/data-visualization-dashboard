@@ -17,10 +17,12 @@ const App = () => {
   }, [getApiData]);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      // style={{ display: 'flex' }}
+    >
       <BrowserRouter>
-        {/* <CssBaseline />
-        <Sidebar /> */}
+        {/* <Sidebar /> */}
         <main>
           <Navbar />
           <Routes>
