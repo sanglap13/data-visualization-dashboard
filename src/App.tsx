@@ -19,8 +19,8 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <CssBaseline />
-        <Sidebar />
+        {/* <CssBaseline />
+        <Sidebar /> */}
         <main>
           <Navbar />
           <Routes>

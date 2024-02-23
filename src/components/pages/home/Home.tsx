@@ -119,56 +119,7 @@ const Home = () => {
       color: 'hsl(237, 70%, 50%)',
     },
   ];
-  const pieFill = [
-    {
-      match: {
-        id: 'ruby',
-      },
-      id: 'dots',
-    },
-    {
-      match: {
-        id: 'c',
-      },
-      id: 'dots',
-    },
-    {
-      match: {
-        id: 'go',
-      },
-      id: 'dots',
-    },
-    {
-      match: {
-        id: 'python',
-      },
-      id: 'dots',
-    },
-    {
-      match: {
-        id: 'scala',
-      },
-      id: 'lines',
-    },
-    {
-      match: {
-        id: 'lisp',
-      },
-      id: 'lines',
-    },
-    {
-      match: {
-        id: 'elixir',
-      },
-      id: 'lines',
-    },
-    {
-      match: {
-        id: 'javascript',
-      },
-      id: 'lines',
-    },
-  ];
+
   return (
     <div className="home">
       <div className="cards-container">
@@ -192,7 +143,7 @@ const Home = () => {
         </div>
         <div className="charts">
           <div className="pie-chart">
-            <PieChart pieData={pieData} pieFill={pieFill} />
+            <PieChart pieData={pieData} />
           </div>
           <div className="bar-chart">
             <BarChart />
