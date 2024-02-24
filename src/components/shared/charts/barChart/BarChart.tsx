@@ -66,7 +66,7 @@ const BarChart: React.FC<BarChartProps> = ({ barData }) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: 'food',
+        // legend: 'food',
         legendPosition: 'middle',
         legendOffset: -40,
         truncateTickAt: 0,

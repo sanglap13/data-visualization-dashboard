@@ -58,6 +58,14 @@
   gap: 1rem;
 }
 
+.stacked-bar-chart-container {
+  /* display: flex; */
+  padding: 1rem;
+  /* justify-content: space-around; */
+  border: 1px solid black;
+  height: 24rem;
+}
+
 @media (width < 650px) {
   .cards-container {
     flex-direction: column;

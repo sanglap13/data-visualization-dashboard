@@ -4,6 +4,7 @@ import {
   BarChart,
   DataTable,
   PieChart,
+  StackedBarChart,
   TopCard,
   UserDataGrid,
 } from '../../shared';
@@ -15,6 +16,7 @@ import VehicleBrandPie from './vehicleBrandPie/VehicleBrandPie';
 import VehicleBrandBar from './vehicleBrandBar/VehicleBrandBar';
 import SdkIntBar from './sdkIntBar/SdkIntBar';
 import VehicleCCPie from './vehicleCCPie/VehicleCCPie';
+import VehicleSdkStackedBar from './vehicleSdkStackedBar/VehicleSdkStackedBar';
 
 interface Column {
   id:
@@ -173,6 +175,9 @@ const Home = () => {
           <VehicleCCPie />
         </div>
       </div>
+      {/* <div className="stacked-bar-chart-container">
+        <VehicleSdkStackedBar />
+      </div> */}
     </div>
   );
 };
