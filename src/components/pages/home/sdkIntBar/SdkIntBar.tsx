@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BarChart } from '../../../shared';
 import {
   Box,
@@ -10,50 +10,62 @@ import {
 } from '@mui/material';
 
 import './sdkIntBar.css';
-
+import { api } from '../../../../utils/api/api';
+interface VehicleDataItem {
+  vehicle_brand: string;
+  zone: string;
+}
 const SdkIntBar = () => {
+  const [apiData, setApiData] = useState<VehicleDataItem[]>([]);
   const [sdkIntZone, setSdkIntZone] = useState('Zone_1');
 
   const handleSdkIntZoneChange = (event: SelectChangeEvent) => {
     setSdkIntZone(event.target.value as string);
   };
-  const barData = [
-    {
-      country: 'AD',
-      'hot dog': 184,
-      'hot dogColor': 'hsl(5, 70%, 50%)',
-    },
-    {
-      country: 'AE',
-      'hot dog': 71,
-      'hot dogColor': 'hsl(53, 70%, 50%)',
-    },
-    {
-      country: 'AF',
-      'hot dog': 32,
-      'hot dogColor': 'hsl(50, 70%, 50%)',
-    },
-    {
-      country: 'AG',
-      'hot dog': 93,
-      'hot dogColor': 'hsl(238, 70%, 50%)',
-    },
-    {
-      country: 'AI',
-      'hot dog': 63,
-      'hot dogColor': 'hsl(151, 70%, 50%)',
-    },
-    {
-      country: 'AL',
-      'hot dog': 77,
-      'hot dogColor': 'hsl(72, 70%, 50%)',
-    },
-    {
-      country: 'AM',
-      'hot dog': 22,
-      'hot dogColor': 'hsl(37, 70%, 50%)',
-    },
-  ];
+
+  //fetching data from api or sessionStorage
+  const getSdkIntData = async () => {
+    const storedData = sessionStorage.getItem('userData');
+    if (storedData !== null) {
+      const userData = await JSON.parse(storedData);
+      const { data } = userData;
+      setApiData(data);
+      console.log('sessionStorage', userData);
+    } else {
+      const userData = await api();
+      // setTableData(userData);
+      console.log('apiCall', userData);
+    }
+  };
+
+  const getVehicleBrandDistribution = () => {
+    // Filter data based on selected zone
+    const filteredData = apiData.filter((item) => item.zone === sdkIntZone);
+
+    // Aggregate data to count occurrences of each vehicle brand
+    const brandDistribution = filteredData.reduce(
+      (accumulator, currentItem) => {
+        const brand = currentItem.vehicle_brand;
+        accumulator[brand] = (accumulator[brand] || 0) + 1;
+        return accumulator;
+      },
+      {} as { [key: string]: number }
+    );
+
+    // Transform aggregated data into format suitable for Bar Chart
+    const barChartData = Object.entries(brandDistribution).map(
+      ([brand, count]) => ({
+        brand,
+        count,
+      })
+    );
+
+    return barChartData;
+  };
+
+  useEffect(() => {
+    getSdkIntData();
+  }, []);
   return (
     <div className="sdk-int-bar-container">
       <div className="sdk-int-bar-header">
@@ -77,7 +89,7 @@ const SdkIntBar = () => {
         </Box>
       </div>
       <div className="bar-chart-container">
-        <BarChart barData={barData} />
+        <BarChart barData={getVehicleBrandDistribution()} />
       </div>
     </div>
   );

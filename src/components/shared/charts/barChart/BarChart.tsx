@@ -1,12 +1,13 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
+import { BarChartProps } from '../../../../@types/barChart.types';
 
-const BarChart: React.FC<any> = ({ barData }) => {
+const BarChart: React.FC<BarChartProps> = ({ barData }) => {
   return (
     <ResponsiveBar
       data={barData}
-      keys={['hot dog']}
-      indexBy="country"
+      keys={['count']}
+      indexBy="brand"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
       valueScale={{ type: 'linear' }}
@@ -76,6 +77,7 @@ const BarChart: React.FC<any> = ({ barData }) => {
         from: 'color',
         modifiers: [['darker', 1.6]],
       }}
+      animate={true}
       // legends={[
       //   {
       //     dataFrom: 'keys',

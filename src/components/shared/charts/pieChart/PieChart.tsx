@@ -126,6 +126,7 @@ const PieChart: React.FC<PieChartProps> = ({ pieData }) => {
           id: 'lines',
         },
       ]}
+      animate={true}
       // legends={[
       //   {
       //     anchor: 'right',
