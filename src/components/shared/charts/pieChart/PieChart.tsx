@@ -1,7 +1,8 @@
 import React from 'react';
 import { ResponsivePie } from '@nivo/pie';
+import { PieChartProps } from '../../../../@types/pieChart.types';
 
-const PieChart: React.FC<any> = ({ pieData }) => {
+const PieChart: React.FC<PieChartProps> = ({ pieData }) => {
   const data = [
     {
       id: 'make',

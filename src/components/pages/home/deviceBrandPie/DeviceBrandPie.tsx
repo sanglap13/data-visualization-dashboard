@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { PieChart } from '../../../shared';
 import {
   Box,
@@ -10,9 +10,17 @@ import {
 } from '@mui/material';
 
 import './deviceBrandPie.css';
+import { api } from '../../../../utils/api/api';
+
+interface DataItem {
+  device_brand: string;
+  zone: string;
+}
 
 const DeviceBrandPie = () => {
-  const [deviceBrandZone, setDeviceBrandZone] = useState('Zone_1');
+  //for apiCall
+  const [apiData, setApidata] = useState<DataItem[]>([]);
+  const [deviceBrandZone, setDeviceBrandZone] = useState<string>('Zone_1');
 
   const handleDeviceBrandZoneChange = (event: SelectChangeEvent) => {
     setDeviceBrandZone(event.target.value as string);
@@ -50,6 +58,53 @@ const DeviceBrandPie = () => {
       color: 'hsl(237, 70%, 50%)',
     },
   ];
+  //fetching data from api or sessionStorage
+  const getDeviceData = async () => {
+    const storedData = sessionStorage.getItem('userData');
+    if (storedData !== null) {
+      const userData = await JSON.parse(storedData);
+      const { data } = userData;
+      setApidata(data);
+      console.log('sessionStorage', userData);
+    } else {
+      const userData = await api();
+      // setTableData(userData);
+      console.log('apiCall', userData);
+    }
+  };
+
+  //for deviceBrand Distribution
+  const getDeviceBrandDistribution = () => {
+    // for filtering data based on zone
+    const filteredData = apiData.filter(
+      (item) => item.zone === deviceBrandZone
+    );
+
+    // for Aggregating data to count occurrences of each device brand
+    const brandDistribution = filteredData.reduce(
+      (accumulator, currentItem) => {
+        const brand = currentItem.device_brand;
+        accumulator[brand] = (accumulator[brand] || 0) + 1;
+        return accumulator;
+      },
+      {} as { [key: string]: number }
+    );
+
+    // for Transforming data into format suitable for Nivo Pie Chart
+    const pieChartData = Object.entries(brandDistribution).map(
+      ([brand, count]) => ({
+        id: brand,
+        label: brand,
+        value: count,
+      })
+    );
+    return pieChartData;
+  };
+
+  //fetching data from api or sessionStorage
+  useEffect(() => {
+    getDeviceData();
+  }, []);
   return (
     <div className="device-brand-pie-container">
       <div className="device-brand-pie-header">
@@ -73,7 +128,7 @@ const DeviceBrandPie = () => {
         </Box>
       </div>
 
-      <PieChart pieData={pieData} />
+      <PieChart pieData={getDeviceBrandDistribution()} />
     </div>
   );
 };
