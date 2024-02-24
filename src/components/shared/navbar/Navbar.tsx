@@ -63,7 +63,7 @@ const Navbar = () => {
     //     ))}
     //   </List>
     // </Box>
-    <div>
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <Toolbar />
 
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -112,7 +112,7 @@ const Navbar = () => {
           );
         })}
       </List>
-    </div>
+    </Box>
   );
 
   return (

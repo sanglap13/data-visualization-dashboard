@@ -70,4 +70,10 @@
   .cards-container {
     flex-direction: column;
   }
+  .middle-container {
+    flex-direction: column;
+  }
+  .bottom-container {
+    flex-direction: column;
+  }
 }
