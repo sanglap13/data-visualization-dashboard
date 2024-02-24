@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { Home, UserInfo } from './components/pages';
-import { MainContainer, Navbar, Sidebar } from './components/shared';
+import { Navbar, Sidebar } from './components/shared';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { api } from './utils/api/api';
 import { CssBaseline } from '@mui/material';

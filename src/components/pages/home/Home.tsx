@@ -3,12 +3,13 @@ import { api } from '../../../utils/api/api';
 import {
   BarChart,
   DataTable,
-  MainContainer,
   PieChart,
   TopCard,
+  UserDataGrid,
 } from '../../shared';
 
 import './home.css';
+import UserInfoGrid from '../usersInfo/userInfoGrid/UserInfoGrid';
 
 interface Column {
   id:
@@ -137,14 +138,15 @@ const Home = () => {
           <div className="data-table-header">
             <h1 className="title">User Data</h1>
           </div>
-          <DataTable
+          {/* <DataTable
             tablePage={tablePage}
             rowsPerPage={rowsPerPage}
             handleChangePage={handleChangePage}
             handleChangeRowsPerPage={handleChangeRowsPerPage}
             rows={rows}
             columns={columns}
-          />
+          /> */}
+          <UserInfoGrid />
         </div>
         <div className="charts">
           <div className="pie-chart">

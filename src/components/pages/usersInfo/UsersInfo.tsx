@@ -1,10 +1,11 @@
 import React from 'react';
-import { MainContainer, UserDataGrid } from '../../shared';
+import { UserDataGrid } from '../../shared';
+import UserInfoGrid from './userInfoGrid/UserInfoGrid';
 
 const UsersInfo = () => {
   return (
     <div>
-      <UserDataGrid />
+      <UserInfoGrid />
     </div>
   );
 };

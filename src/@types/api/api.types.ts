@@ -11,7 +11,7 @@ export type userInfo = {
 };
 
 export type apiResponse = {
-  data?: userInfo[];
+  data: userInfo[];
   msg: string;
   status: boolean;
 };
