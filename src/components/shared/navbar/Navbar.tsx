@@ -28,6 +28,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import './navbar.css';
 import { SIDEBAR_DETAILS } from '../../../constants/sidebarDetails';
 import { AltorLogo } from '../../../assets';
+import Sidebar from '../sidebar/Sidebar';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -35,66 +36,7 @@ const Navbar = () => {
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
-  const DrawerList = (
-    <Box
-      sx={{
-        width: 250,
-        // backgroundColor: '#2D53DA'
-        backgroundColor: '#DFF0FE',
-      }}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-    >
-      <Toolbar />
-
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Typography variant="h4" color="red">
-          Admin Panel
-        </Typography>
-      </Box>
-      <Box mb="25px">
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <img
-            alt="profile-user"
-            width="100px"
-            height="100px"
-            src={AltorLogo}
-            style={{ cursor: 'pointer', borderRadius: '50%' }}
-          />
-        </Box>
-        <Box textAlign="center">
-          <Typography
-            variant="h5"
-            color="red"
-            fontWeight="bold"
-            sx={{ m: '10px 0 0 0' }}
-          >
-            Sanglap Mridha
-          </Typography>
-          <Typography variant="h5" color="red">
-            SDE FE Intern
-          </Typography>
-        </Box>
-      </Box>
-      <Divider />
-
-      <List>
-        {SIDEBAR_DETAILS.map((text, index) => {
-          const { label, redirection_link, icon } = text;
-          return (
-            <ListItem key={label} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {typeof icon === 'function' ? icon() : icon}
-                </ListItemIcon>
-                <ListItemText primary={label} />
-              </ListItemButton>
-            </ListItem>
-          );
-        })}
-      </List>
-    </Box>
-  );
+  const DrawerList = <Sidebar toggleDrawer={toggleDrawer} />;
 
   return (
     <div className="navbar">
@@ -102,7 +44,11 @@ const Navbar = () => {
         display="flex"
         justifyContent="space-between"
         p={2}
-        sx={{ backgroundColor: 'white' }}
+        sx={{
+          // background: rgb(2, 194, 204),
+          background:
+            'linear-gradient(90deg, rgba(2,194,204,1) 0%, rgba(62,121,218,1) 45%, rgba(125,43,232,1) 100%)',
+        }}
       >
         <Button className="glow-on-hover" onClick={toggleDrawer(true)}>
           <IconButton>
