@@ -3,6 +3,7 @@ export { default as Sidebar } from './sidebar/Sidebar';
 export { default as MainContainer } from './mainContainer/MainContainer';
 export { default as TopCard } from './topCard/TopCard';
 export { default as DataTable } from './dataTable/DataTable';
+export { default as UserDataGrid } from './userDataGrid/UserDataGrid';
 
 //charts
 export { default as PieChart } from './charts/pieChart/PieChart';

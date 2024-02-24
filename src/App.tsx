@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
-import { Home } from './components/pages';
+import { Home, UserInfo } from './components/pages';
 import { MainContainer, Navbar, Sidebar } from './components/shared';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { api } from './utils/api/api';
@@ -27,7 +27,7 @@ const App = () => {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/users" element={<Home />} />
+            <Route path="/users" element={<UserInfo />} />
           </Routes>
         </main>
       </BrowserRouter>
