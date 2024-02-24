@@ -8,56 +8,22 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
+import { api } from '../../../../utils/api/api';
+import { DeviceBrandDataItem } from '../../../../@types/pieChart.types';
 
 import './deviceBrandPie.css';
-import { api } from '../../../../utils/api/api';
-
-interface DataItem {
-  device_brand: string;
-  zone: string;
-}
 
 const DeviceBrandPie = () => {
   //for apiCall
-  const [apiData, setApidata] = useState<DataItem[]>([]);
+  const [apiData, setApidata] = useState<DeviceBrandDataItem[]>([]);
+  //for selecting zone
   const [deviceBrandZone, setDeviceBrandZone] = useState<string>('Zone_1');
 
+  //for changing zone
   const handleDeviceBrandZoneChange = (event: SelectChangeEvent) => {
     setDeviceBrandZone(event.target.value as string);
   };
-  //piechart
-  const pieData = [
-    {
-      id: 'make',
-      label: 'make',
-      value: 170,
-      color: 'hsl(157, 70%, 50%)',
-    },
-    {
-      id: 'rust',
-      label: 'rust',
-      value: 196,
-      color: 'hsl(220, 70%, 50%)',
-    },
-    {
-      id: 'css',
-      label: 'css',
-      value: 425,
-      color: 'hsl(71, 70%, 50%)',
-    },
-    {
-      id: 'haskell',
-      label: 'haskell',
-      value: 254,
-      color: 'hsl(5, 70%, 50%)',
-    },
-    {
-      id: 'stylus',
-      label: 'stylus',
-      value: 358,
-      color: 'hsl(237, 70%, 50%)',
-    },
-  ];
+
   //fetching data from api or sessionStorage
   const getDeviceData = async () => {
     const storedData = sessionStorage.getItem('userData');
@@ -108,7 +74,7 @@ const DeviceBrandPie = () => {
   return (
     <div className="device-brand-pie-container">
       <div className="device-brand-pie-header">
-        <h2>Device Brand</h2>
+        <h2>Device Brand Distribution</h2>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Zone</InputLabel>
