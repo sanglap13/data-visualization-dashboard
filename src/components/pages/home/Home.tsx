@@ -10,6 +10,11 @@ import {
 
 import './home.css';
 import UserInfoGrid from '../usersInfo/userInfoGrid/UserInfoGrid';
+import DeviceBrandPie from './deviceBrandPie/DeviceBrandPie';
+import VehicleBrandPie from './vehicleBrandPie/VehicleBrandPie';
+import VehicleBrandBar from './vehicleBrandBar/VehicleBrandBar';
+import SdkIntBar from './sdkIntBar/SdkIntBar';
+import VehicleCCPie from './vehicleCCPie/VehicleCCPie';
 
 interface Column {
   id:
@@ -150,22 +155,22 @@ const Home = () => {
         </div>
         <div className="charts">
           <div className="pie-chart">
-            <PieChart pieData={pieData} />
+            <DeviceBrandPie />
           </div>
           <div className="bar-chart">
-            <BarChart />
+            <VehicleBrandBar />
           </div>
         </div>
       </div>
       <div className="bottom-container">
         <div className="bottom-charts">
-          <BarChart />
+          <SdkIntBar />
         </div>
         <div className="bottom-charts">
-          <PieChart pieData={pieData} />
+          <VehicleBrandPie />
         </div>
         <div className="bottom-charts">
-          <PieChart pieData={pieData} />
+          <VehicleCCPie />
         </div>
       </div>
     </div>
