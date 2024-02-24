@@ -1,47 +1,10 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 
-const BarChart = () => {
-  const data = [
-    {
-      country: 'AD',
-      'hot dog': 184,
-      'hot dogColor': 'hsl(5, 70%, 50%)',
-    },
-    {
-      country: 'AE',
-      'hot dog': 71,
-      'hot dogColor': 'hsl(53, 70%, 50%)',
-    },
-    {
-      country: 'AF',
-      'hot dog': 32,
-      'hot dogColor': 'hsl(50, 70%, 50%)',
-    },
-    {
-      country: 'AG',
-      'hot dog': 93,
-      'hot dogColor': 'hsl(238, 70%, 50%)',
-    },
-    {
-      country: 'AI',
-      'hot dog': 63,
-      'hot dogColor': 'hsl(151, 70%, 50%)',
-    },
-    {
-      country: 'AL',
-      'hot dog': 77,
-      'hot dogColor': 'hsl(72, 70%, 50%)',
-    },
-    {
-      country: 'AM',
-      'hot dog': 22,
-      'hot dogColor': 'hsl(37, 70%, 50%)',
-    },
-  ];
+const BarChart: React.FC<any> = ({ barData }) => {
   return (
     <ResponsiveBar
-      data={data}
+      data={barData}
       keys={['hot dog']}
       indexBy="country"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
