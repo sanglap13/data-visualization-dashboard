@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { BarChart, PieChart } from '../../../shared';
 import {
   Box,
@@ -21,19 +21,24 @@ const VehicleBrandBar = () => {
     setVehicleBrandZone(event.target.value as string);
   };
   //fetching data from api or sessionStorage
-  const getSdkIntData = async () => {
+  const getVehicleBrandData = useCallback(async () => {
     const storedData = sessionStorage.getItem('userData');
+    let userData;
+
     if (storedData !== null) {
-      const userData = await JSON.parse(storedData);
+      userData = await JSON.parse(storedData);
+    } else {
+      userData = await api();
+    }
+
+    if (userData && userData.data) {
       const { data } = userData;
       setApiData(data);
-      console.log('sessionStorage', userData);
+      console.log('userData:', userData);
     } else {
-      const userData = await api();
-      // setTableData(userData);
-      console.log('apiCall', userData);
+      console.error('userData is undefined or does not contain data');
     }
-  };
+  }, []);
 
   const getVehicleBrandDistribution = () => {
     // Filter data based on selected zone
@@ -63,7 +68,7 @@ const VehicleBrandBar = () => {
   };
 
   useEffect(() => {
-    getSdkIntData();
+    getVehicleBrandData();
   }, []);
   return (
     <div className="vehicle-brand-bar-container">
