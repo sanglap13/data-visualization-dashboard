@@ -19,3 +19,9 @@ export type VehicleBrandDataItem = {
   vehicle_brand: string;
   zone: string;
 };
+
+//Vehicle Brand Distribution
+export type VehicleCCDataItem = {
+  vehicle_cc: string;
+  zone: string;
+};
