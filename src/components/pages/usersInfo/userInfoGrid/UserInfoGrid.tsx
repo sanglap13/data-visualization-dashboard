@@ -20,19 +20,23 @@ const UserInfoGrid = () => {
   //fetching data from api or sessionStorage
   const getUserData = useCallback(async () => {
     const storedData = sessionStorage.getItem('userData');
+    let userData;
+
     if (storedData !== null) {
-      const userData = await JSON.parse(storedData);
+      userData = await JSON.parse(storedData);
+    } else {
+      userData = await api();
+    }
+
+    if (userData && userData.data) {
       const { data } = userData;
       setDataGridUserInfo(data);
-      console.log('sessionStorage2', userData);
+      console.log('userData:', userData);
     } else {
-      const userData = await api();
-      console.log('f', userData);
-      //   const { data } = userData;
-      //   setDataGridUserInfo(data);
-      console.log('apiCall2', userData);
+      console.error('userData is undefined or does not contain data');
     }
   }, []);
+
   //fetching data from api or sessionStorage
   useEffect(() => {
     getUserData();

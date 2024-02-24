@@ -16,3 +16,18 @@ export const api = async (): Promise<apiResponse | undefined> => {
     console.error('Error fetching data:', error);
   }
 };
+// export const api = async (): Promise<apiResponse | undefined> => {
+//   try {
+//     const response = await axios.get(API_URL);
+//     const { data: result, status } = response;
+//     // console.log(response.data);
+//     if (status) {
+//       const { data } = result;
+//       return data;
+//     } else {
+//       alert('status: failed');
+//     }
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//   }
+// };
