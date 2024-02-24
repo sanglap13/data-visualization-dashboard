@@ -1,15 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { api } from '../../../utils/api/api';
-import {
-  BarChart,
-  DataTable,
-  PieChart,
-  StackedBarChart,
-  TopCard,
-  UserDataGrid,
-} from '../../shared';
-
-import './home.css';
+import { TopCard, UserDataGrid } from '../../shared';
 import UserInfoGrid from '../usersInfo/userInfoGrid/UserInfoGrid';
 import DeviceBrandPie from './deviceBrandPie/DeviceBrandPie';
 import VehicleBrandPie from './vehicleBrandPie/VehicleBrandPie';
@@ -18,33 +9,7 @@ import SdkIntBar from './sdkIntBar/SdkIntBar';
 import VehicleCCPie from './vehicleCCPie/VehicleCCPie';
 import VehicleSdkStackedBar from './vehicleSdkStackedBar/VehicleSdkStackedBar';
 
-interface Column {
-  id:
-    | 'device_brand'
-    | 'model'
-    | 'processor'
-    | 'sdk_int'
-    | 'username'
-    | 'vehicle_brand'
-    | 'vehicle_cc'
-    | 'vehicle_type'
-    | 'zone';
-  label: string;
-  minWidth?: number;
-  align?: 'right';
-  format?: (value: number) => string;
-}
-interface Data {
-  device_brand: string;
-  model: string;
-  processor: string;
-  sdk_int: number;
-  username: string;
-  vehicle_brand: string;
-  vehicle_cc: string;
-  vehicle_type: string;
-  zone: string;
-}
+import './home.css';
 
 const Home = () => {
   return (
@@ -81,9 +46,10 @@ const Home = () => {
           <VehicleCCPie />
         </div>
       </div>
-      {/* <div className="stacked-bar-chart-container">
+
+      <div className="stacked-bar-chart-container">
         <VehicleSdkStackedBar />
-      </div> */}
+      </div>
     </div>
   );
 };

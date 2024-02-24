@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
 
-import './topCard.scss';
+import './topCard.css';
 
 const TopCard = () => {
   return (

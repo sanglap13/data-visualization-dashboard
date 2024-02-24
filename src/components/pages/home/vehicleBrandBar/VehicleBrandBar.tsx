@@ -73,7 +73,7 @@ const VehicleBrandBar = () => {
   return (
     <div className="vehicle-brand-bar-container">
       <div className="vehicle-brand-bar-header">
-        <h2>Device Brand</h2>
+        <h2>Vehicle Brand Distribution</h2>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Zone</InputLabel>

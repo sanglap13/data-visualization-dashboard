@@ -36,34 +36,15 @@ const Navbar = () => {
     setOpen(newOpen);
   };
   const DrawerList = (
-    // <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-    //   <List>
-    //     {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-    //       <ListItem key={text} disablePadding>
-    //         <ListItemButton>
-    //           <ListItemIcon>
-    //             {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-    //           </ListItemIcon>
-    //           <ListItemText primary={text} />
-    //         </ListItemButton>
-    //       </ListItem>
-    //     ))}
-    //   </List>
-    //   <Divider />
-    //   <List>
-    //     {['All mail', 'Trash', 'Spam'].map((text, index) => (
-    //       <ListItem key={text} disablePadding>
-    //         <ListItemButton>
-    //           <ListItemIcon>
-    //             {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-    //           </ListItemIcon>
-    //           <ListItemText primary={text} />
-    //         </ListItemButton>
-    //       </ListItem>
-    //     ))}
-    //   </List>
-    // </Box>
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box
+      sx={{
+        width: 250,
+        // backgroundColor: '#2D53DA'
+        backgroundColor: '#DFF0FE',
+      }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+    >
       <Toolbar />
 
       <Box display="flex" justifyContent="space-between" alignItems="center">
@@ -121,7 +102,7 @@ const Navbar = () => {
         display="flex"
         justifyContent="space-between"
         p={2}
-        sx={{ backgroundColor: '#cccccc' }}
+        sx={{ backgroundColor: 'white' }}
       >
         <Button className="glow-on-hover" onClick={toggleDrawer(true)}>
           <IconButton>
