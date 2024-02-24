@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 
 import './vehicleBrandBar.css';
-import { VehicleBrandDataItem } from '../../../../@types/pieChart.types';
+import { VehicleBrandDataItem } from '../../../../@types/barChart.types';
 import { api } from '../../../../utils/api/api';
 
 const VehicleBrandBar = () => {

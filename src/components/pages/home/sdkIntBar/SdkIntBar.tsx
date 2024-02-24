@@ -11,12 +11,10 @@ import {
 
 import './sdkIntBar.css';
 import { api } from '../../../../utils/api/api';
-interface VehicleDataItem {
-  vehicle_brand: string;
-  zone: string;
-}
+import { SdkIntDataItem } from '../../../../@types/barChart.types';
+
 const SdkIntBar = () => {
-  const [apiData, setApiData] = useState<VehicleDataItem[]>([]);
+  const [apiData, setApiData] = useState<SdkIntDataItem[]>([]);
   const [sdkIntZone, setSdkIntZone] = useState('Zone_1');
 
   const handleSdkIntZoneChange = (event: SelectChangeEvent) => {
@@ -38,14 +36,14 @@ const SdkIntBar = () => {
     }
   };
 
-  const getVehicleBrandDistribution = () => {
+  const getSdkIntDistribution = () => {
     // Filter data based on selected zone
     const filteredData = apiData.filter((item) => item.zone === sdkIntZone);
 
     // Aggregate data to count occurrences of each vehicle brand
     const brandDistribution = filteredData.reduce(
       (accumulator, currentItem) => {
-        const brand = currentItem.vehicle_brand;
+        const brand = `SDK ${currentItem.sdk_int}`;
         accumulator[brand] = (accumulator[brand] || 0) + 1;
         return accumulator;
       },
@@ -89,7 +87,7 @@ const SdkIntBar = () => {
         </Box>
       </div>
       <div className="bar-chart-container">
-        <BarChart barData={getVehicleBrandDistribution()} />
+        <BarChart barData={getSdkIntDistribution()} />
       </div>
     </div>
   );
