@@ -5,6 +5,7 @@ DashDesk is a cutting-edge Data Visualization Dashboard designed to empower busi
 ## Author
 
 - [@sanglap13](https://github.com/sanglap13)
+  (sanglapmridha@gmail.com)
 
 ## Tech Stack
 
