@@ -22,7 +22,6 @@ const App = () => {
       // style={{ display: 'flex' }}
     >
       <BrowserRouter>
-        {/* <Sidebar /> */}
         <main>
           <Navbar />
           <Routes>

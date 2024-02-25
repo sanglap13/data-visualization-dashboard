@@ -22,7 +22,7 @@ DashDesk is a cutting-edge Data Visualization Dashboard designed to empower busi
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](/src/assets/screenshots/dashDesk7.PNG)
 
 ## Install and Run Locally
 
@@ -30,12 +30,6 @@ Clone the project
 
 ```bash
   git clone https://github.com/sanglap13/data-visualization-dashboard.git
-```
-
-Go to the project directory
-
-```bash
-  cd data-visualization-dashboard
 ```
 
 Install dependencies
