@@ -22,13 +22,10 @@ DashDesk is a cutting-edge Data Visualization Dashboard designed to empower busi
 
 ## Screenshots
 
-Home Page
 ![Home](/src/assets/screenshots/dashDesk7.PNG)
 
-Sidebar Menu
 ![Menu](/src/assets/screenshots/dashDesk5.PNG)
 
-Mobile View
 ![Mobile](/src/assets/screenshots/dashDesk6.PNG)
 
 ## Install and Run Locally
