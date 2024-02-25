@@ -36,15 +36,20 @@ const VehicleSdkStackedBar = () => {
   //fetching data from api or sessionStorage
   const getVehicleCCData = async () => {
     const storedData = sessionStorage.getItem('userData');
+    let userData;
+
     if (storedData !== null) {
-      const userData = await JSON.parse(storedData);
+      userData = await JSON.parse(storedData);
+    } else {
+      userData = await api();
+    }
+
+    if (userData && userData.data) {
       const { data } = userData;
       setApidata(data);
-      console.log('sessionStorage', userData);
+      console.log('userData:', userData);
     } else {
-      const userData = await api();
-      // setTableData(userData);
-      console.log('apiCall', userData);
+      console.error('userData is undefined or does not contain data');
     }
   };
 
