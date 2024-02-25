@@ -1,41 +1,51 @@
-# Project Name
+# DashDesk
 
-A simple web application for managing tasks.
+DashDesk is a cutting-edge Data Visualization Dashboard designed to empower businesses and individuals with actionable insights derived from their data. With intuitive visualization tools and customizable dashboards, DashDesk makes it effortless to explore, analyze, and present complex datasets in a visually compelling manner.
 
-## Introduction
+## Author
 
-Task Manager is a lightweight task management tool built with Flask. It allows users to create, update, and delete tasks easily.
+- [@sanglap13](https://github.com/sanglap13)
 
-## Features
+## Tech Stack
 
-- Create new tasks
-- Update task status
-- Delete tasks
-- User authentication
+**Frontend:** HTML, CSS, React, Typescript
 
-## Installation
+**Component Library:** Material UI v5 & Material UI X/data-grid
 
-1. Clone the repository.
-2. Install dependencies using `pip install -r requirements.txt`.
-3. Run `python app.py` to start the application.
+**Charts:** Nivo Charts
 
-## Usage
+**Extras:** Axios, react-router-dom
 
-- Navigate to `http://localhost:5000` in your web browser.
-- Sign up for a new account or log in with an existing one.
-- Create, update, or delete tasks as needed.
+## Documentation
 
-## Contributing
+[Documentation](https://docs.google.com/document/d/1xz-aJgm6kzYnLSRTne0PbHWgbJz7vmn_PWQmVqhvmTU/edit?usp=sharing)
 
-Contributions are welcome! Please follow these guidelines:
+## Screenshots
 
-- Fork the repository.
-- Create a new branch (`git checkout -b feature-name`).
-- Make your changes.
-- Commit your changes (`git commit -am 'Add new feature'`).
-- Push to the branch (`git push origin feature-name`).
-- Create a new pull request.
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
-## License
+## Install and Run Locally
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Clone the project
+
+```bash
+  git clone https://github.com/sanglap13/data-visualization-dashboard.git
+```
+
+Go to the project directory
+
+```bash
+  cd data-visualization-dashboard
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
