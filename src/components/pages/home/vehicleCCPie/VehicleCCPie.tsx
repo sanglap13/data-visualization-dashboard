@@ -8,10 +8,10 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-
-import './vehicleCCPie.css';
 import { VehicleCCDataItem } from '../../../../@types/pieChart.types';
 import { api } from '../../../../utils/api/api';
+
+import './vehicleCCPie.css';
 
 const VehicleCCPie = () => {
   //for apiCall
@@ -73,6 +73,7 @@ const VehicleCCPie = () => {
   useEffect(() => {
     getVehicleCCData();
   }, []);
+
   return (
     <div className="vehicle-cc-pie-container">
       <div className="vehicle-cc-pie-header">

@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
 import { Home, UserInfo } from './components/pages';
-import { Navbar, Sidebar } from './components/shared';
+import { Navbar } from './components/shared';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { api } from './utils/api/api';
-import { CssBaseline } from '@mui/material';
 
 const App = () => {
+  //storing apiResponse in SessionStorage
   const getApiData = useCallback(async () => {
     const userData = await api();
     sessionStorage.setItem('userData', JSON.stringify(userData));
@@ -17,10 +17,7 @@ const App = () => {
   }, [getApiData]);
 
   return (
-    <div
-      className="App"
-      // style={{ display: 'flex' }}
-    >
+    <div className="App">
       <BrowserRouter>
         <main>
           <Navbar />

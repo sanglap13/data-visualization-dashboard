@@ -8,15 +8,18 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-
-import './sdkIntBar.css';
 import { api } from '../../../../utils/api/api';
 import { SdkIntDataItem } from '../../../../@types/barChart.types';
 
-const SdkIntBar = () => {
-  const [apiData, setApiData] = useState<SdkIntDataItem[]>([]);
-  const [sdkIntZone, setSdkIntZone] = useState('Zone_1');
+import './sdkIntBar.css';
 
+const SdkIntBar = () => {
+  //for apiCall
+  const [apiData, setApiData] = useState<SdkIntDataItem[]>([]);
+  //for selecting zone
+  const [sdkIntZone, setSdkIntZone] = useState<string>('Zone_1');
+
+  //for changing zone
   const handleSdkIntZoneChange = (event: SelectChangeEvent) => {
     setSdkIntZone(event.target.value as string);
   };
@@ -66,9 +69,11 @@ const SdkIntBar = () => {
     return barChartData;
   };
 
+  //fetching data from api or sessionStorage
   useEffect(() => {
     getSdkIntData();
   }, []);
+
   return (
     <div className="sdk-int-bar-container">
       <div className="sdk-int-bar-header">

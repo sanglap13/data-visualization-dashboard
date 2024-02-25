@@ -5,12 +5,15 @@ import { UserDataGridInfo } from '../../../../@types/dataGrid.types';
 import { api } from '../../../../utils/api/api';
 import { DATAGRID_COLUMNS } from '../../../../constants/userDataGrid';
 
-const dataGridColumns: GridColDef[] = DATAGRID_COLUMNS;
-
 const UserInfoGrid = () => {
+  //for ApiCall as well as this is the rows of dataGrid
   const [dataGriduserInfo, setDataGridUserInfo] = useState<UserDataGridInfo[]>(
     []
   );
+
+  //header of DataGrid
+  const dataGridColumns: GridColDef[] = DATAGRID_COLUMNS;
+
   //fetching data from api or sessionStorage
   const getUserData = useCallback(async () => {
     const storedData = sessionStorage.getItem('userData');
@@ -35,6 +38,7 @@ const UserInfoGrid = () => {
   useEffect(() => {
     getUserData();
   }, [getUserData]);
+
   return (
     <div>
       <UserDataGrid

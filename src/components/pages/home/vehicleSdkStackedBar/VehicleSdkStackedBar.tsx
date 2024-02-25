@@ -7,20 +7,14 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-
-import './vehicleSdkStackedBar.css';
 import { api } from '../../../../utils/api/api';
 import { StackedBarChart } from '../../../shared';
-interface VehicleDataItem {
-  vehicle_cc: string;
-  sdk_int: number;
-  zone: string;
-}
-interface StackedBarChartData {
-  zone: string;
-  vehicleCCCount: number;
-  sdkIntCount: number;
-}
+
+import './vehicleSdkStackedBar.css';
+import {
+  StackedBarChartDataFormat,
+  VehicleDataItem,
+} from '../../../../@types/stackedBarChart.types';
 
 const VehicleSdkStackedBar = () => {
   //for apiCall
@@ -29,12 +23,12 @@ const VehicleSdkStackedBar = () => {
   const [selectedZone, setSelectedZone] = useState<string>('Zone_1');
 
   //for changing zone
-  const handleVehicleCCZoneChange = (event: SelectChangeEvent) => {
+  const handleZoneChange = (event: SelectChangeEvent) => {
     setSelectedZone(event.target.value as string);
   };
 
   //fetching data from api or sessionStorage
-  const getVehicleCCData = async () => {
+  const getApiData = async () => {
     const storedData = sessionStorage.getItem('userData');
     let userData;
 
@@ -53,10 +47,12 @@ const VehicleSdkStackedBar = () => {
     }
   };
 
+  // for filtering data based on zone
   const filterDataByZone = () => {
     return apiData.filter((item) => item.zone === selectedZone);
   };
 
+  // for Aggregating data
   const aggregateDataByZone = (filteredData: VehicleDataItem[]) => {
     const aggregatedData: {
       [key: string]: { vehicleCCCount: number; sdkIntCount: number };
@@ -73,12 +69,13 @@ const VehicleSdkStackedBar = () => {
     return aggregatedData;
   };
 
+  //preparing data for barChart
   const prepareChartData = () => {
     const filteredData = filterDataByZone();
     const aggregatedData = aggregateDataByZone(filteredData);
 
     // Convert aggregated data to an array of objects for StackedBarChart component
-    const chartData: StackedBarChartData[] = [];
+    const chartData: StackedBarChartDataFormat[] = [];
     Object.keys(aggregatedData).forEach((zone) => {
       chartData.push({
         zone,
@@ -90,7 +87,7 @@ const VehicleSdkStackedBar = () => {
   };
 
   useEffect(() => {
-    getVehicleCCData();
+    getApiData();
   }, []);
   return (
     <div className="bar-container">
@@ -104,7 +101,7 @@ const VehicleSdkStackedBar = () => {
               id="demo-simple-select"
               value={selectedZone}
               label="Age"
-              onChange={handleVehicleCCZoneChange}
+              onChange={handleZoneChange}
             >
               <MenuItem value={'Zone_1'}>Zone 1</MenuItem>
               <MenuItem value={'Zone_2'}>Zone 2</MenuItem>

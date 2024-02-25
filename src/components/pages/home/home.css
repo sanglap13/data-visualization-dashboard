@@ -1,6 +1,5 @@
 .home {
   width: 100%;
-
   min-height: fit-content;
   height: 100%;
   margin-top: 5rem;
@@ -27,7 +26,6 @@
   gap: 1rem;
 }
 .data-table {
-  /* height: 50rem; */
   background-color: #ffffff;
   border: 2px solid #e9e9e7;
   border-radius: 0.5rem;
@@ -69,7 +67,6 @@
   gap: 1rem;
   display: flex;
   justify-content: space-around;
-  /* height: 20rem; */
 }
 .bottom-charts {
   background-color: #ffffff;

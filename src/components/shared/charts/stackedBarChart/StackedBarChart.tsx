@@ -1,19 +1,10 @@
 import { ResponsiveBar } from '@nivo/bar';
 import { BarDatum } from '@nivo/bar';
 import React from 'react';
-import { StackedBarChartDataProps } from '../../../../@types/stackedBarChart.types';
+import { StackedBarChartProps } from '../../../../@types/stackedBarChart.types';
 
-interface StackedBarChartData {
-  zone: string;
-  vehicleCCCount: number;
-  sdkIntCount: number;
-}
-
-interface Props {
-  data: StackedBarChartData[];
-}
-const StackedBarChart: React.FC<Props> = ({ data }) => {
-  // Convert StackedBarChartData[] to BarDatum[]
+const StackedBarChart: React.FC<StackedBarChartProps> = ({ data }) => {
+  // Converting to BarDatum[]
   const barData: BarDatum[] = data.map((item) => ({
     id: item.zone,
     vehicleCCCount: item.vehicleCCCount,

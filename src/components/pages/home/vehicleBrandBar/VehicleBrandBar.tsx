@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { BarChart, PieChart } from '../../../shared';
+import { BarChart } from '../../../shared';
 import {
   Box,
   FormControl,
@@ -8,18 +8,22 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-
-import './vehicleBrandBar.css';
 import { VehicleBrandDataItem } from '../../../../@types/barChart.types';
 import { api } from '../../../../utils/api/api';
 
+import './vehicleBrandBar.css';
+
 const VehicleBrandBar = () => {
+  //for apiCall
   const [apiData, setApiData] = useState<VehicleBrandDataItem[]>([]);
+  //for selecting zone
   const [vehicleBrandZone, setVehicleBrandZone] = useState('Zone_1');
 
+  //for changing zone
   const handleVehicleBrandZoneChange = (event: SelectChangeEvent) => {
     setVehicleBrandZone(event.target.value as string);
   };
+
   //fetching data from api or sessionStorage
   const getVehicleBrandData = useCallback(async () => {
     const storedData = sessionStorage.getItem('userData');
@@ -67,9 +71,11 @@ const VehicleBrandBar = () => {
     return barChartData;
   };
 
+  //fetching data from api or sessionStorage
   useEffect(() => {
     getVehicleBrandData();
   }, []);
+
   return (
     <div className="vehicle-brand-bar-container">
       <div className="vehicle-brand-bar-header">

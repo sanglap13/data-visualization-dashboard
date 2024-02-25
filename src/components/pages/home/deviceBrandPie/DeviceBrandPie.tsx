@@ -25,7 +25,6 @@ const DeviceBrandPie = () => {
   };
 
   //fetching data from api or sessionStorage
-
   const getDeviceData = useCallback(async () => {
     const storedData = sessionStorage.getItem('userData');
     let userData;
@@ -45,7 +44,6 @@ const DeviceBrandPie = () => {
     }
   }, []);
 
-  //for deviceBrand Distribution
   const getDeviceBrandDistribution = () => {
     // for filtering data based on zone
     const filteredData = apiData.filter(
@@ -77,6 +75,7 @@ const DeviceBrandPie = () => {
   useEffect(() => {
     getDeviceData();
   }, []);
+
   return (
     <div className="device-brand-pie-container">
       <div className="device-brand-pie-header">

@@ -1,10 +1,11 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
 import PeopleIcon from '@mui/icons-material/People';
+import { TopCardProps } from '../../../@types/topCard.types';
 
 import './topCard.css';
 
-const TopCard = ({ bgColor, title, amount }: any) => {
+const TopCard: React.FC<TopCardProps> = ({ bgColor, title, amount }) => {
   return (
     <Card className="card" sx={{ backgroundColor: bgColor }}>
       <CardContent>

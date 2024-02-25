@@ -1,14 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import {
   DataGrid,
-  GridColDef,
   GridToolbarContainer,
   GridToolbarExport,
-  GridValueGetterParams,
 } from '@mui/x-data-grid';
 import { UserDataGridInfo } from '../../../@types/dataGrid.types';
-import { api } from '../../../utils/api/api';
 
 const CustomExportToolbar = () => {
   return (

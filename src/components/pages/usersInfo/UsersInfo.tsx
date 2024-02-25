@@ -1,5 +1,4 @@
 import React from 'react';
-import { UserDataGrid } from '../../shared';
 import UserInfoGrid from './userInfoGrid/UserInfoGrid';
 
 import './usersInfo.css';

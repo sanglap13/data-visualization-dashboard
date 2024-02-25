@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { api } from '../../../utils/api/api';
-import { TopCard, UserDataGrid } from '../../shared';
+import React from 'react';
+import { TopCard } from '../../shared';
 import UserInfoGrid from '../usersInfo/userInfoGrid/UserInfoGrid';
 import DeviceBrandPie from './deviceBrandPie/DeviceBrandPie';
 import VehicleBrandPie from './vehicleBrandPie/VehicleBrandPie';
@@ -9,19 +8,19 @@ import SdkIntBar from './sdkIntBar/SdkIntBar';
 import VehicleCCPie from './vehicleCCPie/VehicleCCPie';
 import VehicleSdkStackedBar from './vehicleSdkStackedBar/VehicleSdkStackedBar';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-
-import './home.css';
 import { IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
+import './home.css';
+
 const Home = () => {
+  //using useNavigate from react-router-dom
   const navigate = useNavigate();
 
   return (
     <div className="home">
       <div className="cards-container">
         <div className="text-message">Welcome!!</div>
-        {/* <TopCard bgColor={'blue'} /> */}
         <TopCard bgColor={'#f1e15b'} title={'Total Users'} amount={'527'} />
         <TopCard bgColor={'#f47560'} title={'Growth'} amount={'10%'} />
       </div>

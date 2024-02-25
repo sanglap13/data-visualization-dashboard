@@ -1,42 +1,24 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  IconButton,
-  InputBase,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-  Typography,
-  useTheme,
-} from '@mui/material';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import { Box, Button, Drawer, IconButton, Typography } from '@mui/material';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
-import SearchIcon from '@mui/icons-material/Search';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-
-import { SIDEBAR_DETAILS } from '../../../constants/sidebarDetails';
-import { AltorLogo } from '../../../assets';
 import Sidebar from '../sidebar/Sidebar';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const navigate = useNavigate();
+  //for sidebar
   const [open, setOpen] = useState(false);
 
+  //using useNavigate from react-router-dom
+  const navigate = useNavigate();
+
+  //toggle for sidebar
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
+  //importing sidebar
   const DrawerList = <Sidebar toggleDrawer={toggleDrawer} />;
 
   return (
@@ -49,7 +31,6 @@ const Navbar = () => {
         justifyContent="space-between"
         p={2}
         sx={{
-          // background: rgb(2, 194, 204),
           background:
             'linear-gradient(90deg, rgba(2,194,204,1) 0%, rgba(62,121,218,1) 45%, rgba(125,43,232,1) 100%)',
         }}

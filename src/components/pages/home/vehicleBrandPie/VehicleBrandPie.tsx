@@ -8,10 +8,10 @@ import {
   Select,
   SelectChangeEvent,
 } from '@mui/material';
-
-import './vehicleBrandPie.css';
 import { VehicleBrandDataItem } from '../../../../@types/pieChart.types';
 import { api } from '../../../../utils/api/api';
+
+import './vehicleBrandPie.css';
 
 const VehicleBrandPie = () => {
   //for apiCall
@@ -71,43 +71,12 @@ const VehicleBrandPie = () => {
     );
     return pieChartData;
   };
-  //piechart
-  const pieData = [
-    {
-      id: 'make',
-      label: 'make',
-      value: 170,
-      color: 'hsl(157, 70%, 50%)',
-    },
-    {
-      id: 'rust',
-      label: 'rust',
-      value: 196,
-      color: 'hsl(220, 70%, 50%)',
-    },
-    {
-      id: 'css',
-      label: 'css',
-      value: 425,
-      color: 'hsl(71, 70%, 50%)',
-    },
-    {
-      id: 'haskell',
-      label: 'haskell',
-      value: 254,
-      color: 'hsl(5, 70%, 50%)',
-    },
-    {
-      id: 'stylus',
-      label: 'stylus',
-      value: 358,
-      color: 'hsl(237, 70%, 50%)',
-    },
-  ];
+
   //fetching data from api or sessionStorage
   useEffect(() => {
     getVehicleData();
   }, []);
+
   return (
     <div className="vehicle-brand-pie-container">
       <div className="vehicle-brand-pie-header">
