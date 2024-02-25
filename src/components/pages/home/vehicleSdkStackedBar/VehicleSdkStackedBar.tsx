@@ -16,6 +16,11 @@ interface VehicleDataItem {
   sdk_int: number;
   zone: string;
 }
+interface StackedBarChartData {
+  zone: string;
+  vehicleCCCount: number;
+  sdkIntCount: number;
+}
 
 const VehicleSdkStackedBar = () => {
   //for apiCall
@@ -47,33 +52,36 @@ const VehicleSdkStackedBar = () => {
     return apiData.filter((item) => item.zone === selectedZone);
   };
 
-  const aggregateVehicleCCData = (filteredData: VehicleDataItem[]) => {
-    // Aggregate data to calculate total number of vehicles for each vehicle CC value, grouped by zone
-    const aggregatedData = filteredData.reduce(
-      (accumulator, currentItem) => {
-        const { vehicle_cc, zone } = currentItem;
-        accumulator[vehicle_cc] = (accumulator[vehicle_cc] || 0) + 1;
-        return accumulator;
-      },
-      {} as { [key: string]: number }
-    );
-
+  const aggregateDataByZone = (filteredData: VehicleDataItem[]) => {
+    const aggregatedData: {
+      [key: string]: { vehicleCCCount: number; sdkIntCount: number };
+    } = {};
+    filteredData.forEach((item) => {
+      const { vehicle_cc, sdk_int } = item;
+      aggregatedData[item.zone] = aggregatedData[item.zone] || {
+        vehicleCCCount: 0,
+        sdkIntCount: 0,
+      };
+      aggregatedData[item.zone].vehicleCCCount += 1;
+      aggregatedData[item.zone].sdkIntCount += 1;
+    });
     return aggregatedData;
   };
 
-  const aggregateSDKIntData = (filteredData: VehicleDataItem[]) => {
-    // Aggregate data to calculate total number of vehicles for each SDK int value, grouped by zone
-    const aggregatedData = filteredData.reduce(
-      (accumulator, currentItem) => {
-        const { sdk_int, zone } = currentItem;
-        accumulator[sdk_int.toString()] =
-          (accumulator[sdk_int.toString()] || 0) + 1;
-        return accumulator;
-      },
-      {} as { [key: string]: number }
-    );
+  const prepareChartData = () => {
+    const filteredData = filterDataByZone();
+    const aggregatedData = aggregateDataByZone(filteredData);
 
-    return aggregatedData;
+    // Convert aggregated data to an array of objects for StackedBarChart component
+    const chartData: StackedBarChartData[] = [];
+    Object.keys(aggregatedData).forEach((zone) => {
+      chartData.push({
+        zone,
+        vehicleCCCount: aggregatedData[zone].vehicleCCCount,
+        sdkIntCount: aggregatedData[zone].sdkIntCount,
+      });
+    });
+    return chartData;
   };
 
   useEffect(() => {
@@ -102,10 +110,7 @@ const VehicleSdkStackedBar = () => {
         </Box>
       </div>
       <div className="bar-chart-container">
-        <StackedBarChart
-          vehicleCCData={aggregateVehicleCCData(filterDataByZone())}
-          sdkIntData={aggregateSDKIntData(filterDataByZone())}
-        />
+        <StackedBarChart data={prepareChartData()} />
       </div>
     </div>
   );

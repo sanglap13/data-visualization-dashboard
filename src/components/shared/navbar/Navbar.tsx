@@ -29,8 +29,10 @@ import './navbar.css';
 import { SIDEBAR_DETAILS } from '../../../constants/sidebarDetails';
 import { AltorLogo } from '../../../assets';
 import Sidebar from '../sidebar/Sidebar';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -62,9 +64,16 @@ const Navbar = () => {
 
           {/* NAME */}
           <Box display="flex" alignItems="center">
-            <Typography variant="h4" color="#ffffff" fontFamily="Anta">
-              DASHDESK
-            </Typography>
+            <div onClick={() => navigate('/')}>
+              <Typography
+                variant="h4"
+                color="#ffffff"
+                fontFamily="Anta"
+                sx={{ cursor: 'pointer' }}
+              >
+                DASHDESK
+              </Typography>
+            </div>
           </Box>
         </Box>
 
