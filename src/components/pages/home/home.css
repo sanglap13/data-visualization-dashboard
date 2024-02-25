@@ -1,15 +1,23 @@
 .home {
   /* width: 100%; */
-  background-color: #e9f6ff;
+
   min-height: fit-content;
   height: 100%;
+  margin-top: 5rem;
 }
 /* =======================Top Row================== */
 .cards-container {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 1rem;
   gap: 1rem;
+}
+
+.text-message {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 700;
 }
 /* =======================Mid Row================== */
 .middle-container {
@@ -72,10 +80,13 @@
 }
 /* =============================Last Extra Row=================== */
 .stacked-bar-chart-container {
+  background-color: #ffffff;
+  border: 2px solid #e9e9e7;
+  border-radius: 0.5rem;
   /* display: flex; */
   padding: 1rem;
   /* justify-content: space-around; */
-  border: 1px solid black;
+
   height: 24rem;
 }
 

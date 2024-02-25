@@ -67,8 +67,8 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
       <Toolbar />
 
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Typography variant="h4" color="red">
-          Admin Panel
+        <Typography variant="h4" color="#ffffff" ml="25%" mb="1rem">
+          ADMIN
         </Typography>
       </Box>
       <Box mb="200px">
@@ -84,13 +84,13 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
         <Box textAlign="center">
           <Typography
             variant="h5"
-            color="red"
+            color="#ffffff"
             fontWeight="bold"
             sx={{ m: '10px 0 0 0' }}
           >
             Sanglap Mridha
           </Typography>
-          <Typography variant="h5" color="red">
+          <Typography variant="h5" color="#e9e9e7">
             SDE FE Intern
           </Typography>
         </Box>

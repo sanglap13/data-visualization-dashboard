@@ -50,14 +50,23 @@ const Navbar = () => {
             'linear-gradient(90deg, rgba(2,194,204,1) 0%, rgba(62,121,218,1) 45%, rgba(125,43,232,1) 100%)',
         }}
       >
-        <Button className="glow-on-hover" onClick={toggleDrawer(true)}>
-          <IconButton>
-            <MenuIcon />
-          </IconButton>
-        </Button>
-        <Drawer open={open} onClose={toggleDrawer(false)}>
-          {DrawerList}
-        </Drawer>
+        <Box display="flex" alignItems="center">
+          <Button className="glow-on-hover" onClick={toggleDrawer(true)}>
+            <IconButton>
+              <MenuIcon />
+            </IconButton>
+          </Button>
+          <Drawer open={open} onClose={toggleDrawer(false)}>
+            {DrawerList}
+          </Drawer>
+
+          {/* NAME */}
+          <Box display="flex" alignItems="center">
+            <Typography variant="h4" color="#ffffff" fontFamily="Anta">
+              DASHDESK
+            </Typography>
+          </Box>
+        </Box>
 
         {/* ICONS */}
         <Box display="flex">

@@ -15,9 +15,10 @@ const Home = () => {
   return (
     <div className="home">
       <div className="cards-container">
-        <TopCard />
-        <TopCard />
-        <TopCard />
+        <div className="text-message">Welcome</div>
+        {/* <TopCard bgColor={'blue'} /> */}
+        <TopCard bgColor={'#f1e15b'} />
+        <TopCard bgColor={'red'} />
       </div>
       <div className="middle-container">
         <div className="data-table">

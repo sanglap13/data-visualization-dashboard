@@ -3,9 +3,9 @@ import React from 'react';
 
 import './topCard.css';
 
-const TopCard = () => {
+const TopCard = ({ bgColor }: any) => {
   return (
-    <Card className="card">
+    <Card className="card" sx={{ backgroundColor: bgColor }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           Word of the Day
