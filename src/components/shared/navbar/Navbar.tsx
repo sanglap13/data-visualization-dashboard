@@ -25,7 +25,6 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import './navbar.css';
 import { SIDEBAR_DETAILS } from '../../../constants/sidebarDetails';
 import { AltorLogo } from '../../../assets';
 import Sidebar from '../sidebar/Sidebar';
@@ -41,7 +40,10 @@ const Navbar = () => {
   const DrawerList = <Sidebar toggleDrawer={toggleDrawer} />;
 
   return (
-    <div className="navbar">
+    <div
+      className="navbar"
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000 }}
+    >
       <Box
         display="flex"
         justifyContent="space-between"
