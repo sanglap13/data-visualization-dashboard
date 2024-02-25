@@ -17,8 +17,8 @@ const Home = () => {
       <div className="cards-container">
         <div className="text-message">Welcome</div>
         {/* <TopCard bgColor={'blue'} /> */}
-        <TopCard bgColor={'#f1e15b'} />
-        <TopCard bgColor={'red'} />
+        <TopCard bgColor={'#f1e15b'} title={'Total Users'} amount={'527'} />
+        <TopCard bgColor={'#f47560'} title={'Growth'} amount={'10%'} />
       </div>
       <div className="middle-container">
         <div className="data-table">

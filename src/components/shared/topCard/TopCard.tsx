@@ -1,27 +1,38 @@
-import { Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography } from '@mui/material';
 import React from 'react';
+import PeopleIcon from '@mui/icons-material/People';
 
 import './topCard.css';
 
-const TopCard = ({ bgColor }: any) => {
+const TopCard = ({ bgColor, title, amount }: any) => {
   return (
     <Card className="card" sx={{ backgroundColor: bgColor }}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
+        <Typography
+          sx={{ fontSize: 30, fontWeight: '700' }}
+          color="text.secondary"
+          gutterBottom
+        >
+          {title}
         </Typography>
-        <Typography variant="h5" component="div">
-          yo
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography variant="h4" component="div">
+          {amount}
         </Typography>
       </CardContent>
+      <Box>
+        <Box sx={{ textAlign: 'right' }}>
+          <PeopleIcon />
+        </Box>
+        <Box>
+          <Typography
+            sx={{ fontSize: 15, fontWeight: '700', mt: '4rem', color: '#ffff' }}
+            color="text.secondary"
+            gutterBottom
+          >
+            View All
+          </Typography>
+        </Box>
+      </Box>
     </Card>
   );
 };

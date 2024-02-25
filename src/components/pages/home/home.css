@@ -1,5 +1,5 @@
 .home {
-  /* width: 100%; */
+  width: 100%;
 
   min-height: fit-content;
   height: 100%;
@@ -15,7 +15,7 @@
 }
 
 .text-message {
-  width: 100%;
+  width: 180%;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -91,9 +91,13 @@
 }
 
 /* =======================Media Query================== */
-@media (width < 650px) {
+@media (width < 700px) {
   .cards-container {
     flex-direction: column;
+    width: 95%;
+  }
+  .text-message {
+    width: 95%;
   }
   .middle-container {
     flex-direction: column;
@@ -105,6 +109,9 @@
     flex-direction: column;
   }
   .bottom-charts {
+    width: 95%;
+  }
+  .stacked-bar-chart-container {
     width: 95%;
   }
 }
