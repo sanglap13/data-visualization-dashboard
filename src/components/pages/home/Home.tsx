@@ -8,10 +8,15 @@ import VehicleBrandBar from './vehicleBrandBar/VehicleBrandBar';
 import SdkIntBar from './sdkIntBar/SdkIntBar';
 import VehicleCCPie from './vehicleCCPie/VehicleCCPie';
 import VehicleSdkStackedBar from './vehicleSdkStackedBar/VehicleSdkStackedBar';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import './home.css';
+import { IconButton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="home">
       <div className="cards-container">
@@ -24,6 +29,9 @@ const Home = () => {
         <div className="data-table">
           <div className="data-table-header">
             <h1 className="title">User Data</h1>
+            <IconButton onClick={() => navigate('/users')}>
+              <OpenInNewIcon />
+            </IconButton>
           </div>
           <UserInfoGrid />
         </div>

@@ -14,8 +14,6 @@ import {
 import React, { useState } from 'react';
 import { AltorLogo } from '../../../assets';
 import { SIDEBAR_DETAILS } from '../../../constants/sidebarDetails';
-import { Menu, MenuItem, ProSidebar } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
 
 import { Link, useNavigate } from 'react-router-dom';
 import { grey } from '@mui/material/colors';
@@ -86,8 +84,7 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
           const { label, redirection_link, icon } = text;
           return (
             <ListItem key={label} disablePadding>
-              {/* <ListItemButton onClick={navigate(redirection_link)}> */}
-              <ListItemButton>
+              <ListItemButton onClick={() => navigate(redirection_link)}>
                 <ListItemIcon sx={{ color: '#c2c2bd' }}>
                   {typeof icon === 'function' ? icon() : icon}
                 </ListItemIcon>
