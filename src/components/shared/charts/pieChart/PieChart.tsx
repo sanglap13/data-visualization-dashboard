@@ -3,38 +3,6 @@ import { ResponsivePie } from '@nivo/pie';
 import { PieChartProps } from '../../../../@types/pieChart.types';
 
 const PieChart: React.FC<PieChartProps> = ({ pieData }) => {
-  const data = [
-    {
-      id: 'make',
-      label: 'make',
-      value: 170,
-      color: 'hsl(157, 70%, 50%)',
-    },
-    {
-      id: 'rust',
-      label: 'rust',
-      value: 196,
-      color: 'hsl(220, 70%, 50%)',
-    },
-    {
-      id: 'css',
-      label: 'css',
-      value: 425,
-      color: 'hsl(71, 70%, 50%)',
-    },
-    {
-      id: 'haskell',
-      label: 'haskell',
-      value: 254,
-      color: 'hsl(5, 70%, 50%)',
-    },
-    {
-      id: 'stylus',
-      label: 'stylus',
-      value: 358,
-      color: 'hsl(237, 70%, 50%)',
-    },
-  ];
   return (
     <ResponsivePie
       data={pieData}
@@ -43,6 +11,7 @@ const PieChart: React.FC<PieChartProps> = ({ pieData }) => {
       cornerRadius={3}
       activeOuterRadiusOffset={8}
       borderWidth={1}
+      colors={{ scheme: 'nivo' }}
       borderColor={{
         from: 'color',
         modifiers: [['darker', 0.2]],

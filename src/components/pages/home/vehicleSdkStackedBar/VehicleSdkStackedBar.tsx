@@ -95,7 +95,7 @@ const VehicleSdkStackedBar = () => {
   return (
     <div className="bar-container">
       <div className="bar-header">
-        <h2>Vehicle & SDK Distribution</h2>
+        <h2>Vehicle & SDK</h2>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Zone</InputLabel>

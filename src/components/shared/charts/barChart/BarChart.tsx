@@ -12,7 +12,7 @@ const BarChart: React.FC<BarChartProps> = ({ barData }) => {
       padding={0.3}
       valueScale={{ type: 'linear' }}
       indexScale={{ type: 'band', round: true }}
-      colors={{ scheme: 'nivo' }}
+      colors={{ scheme: 'dark2' }}
       defs={[
         {
           id: 'dots',

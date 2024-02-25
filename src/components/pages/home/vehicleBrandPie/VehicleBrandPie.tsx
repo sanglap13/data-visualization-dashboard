@@ -111,7 +111,7 @@ const VehicleBrandPie = () => {
   return (
     <div className="vehicle-brand-pie-container">
       <div className="vehicle-brand-pie-header">
-        <h2>Vehicle Brand Distribution</h2>
+        <h2>Vehicle Brand</h2>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Zone</InputLabel>

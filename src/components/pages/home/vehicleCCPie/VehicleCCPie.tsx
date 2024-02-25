@@ -76,7 +76,7 @@ const VehicleCCPie = () => {
   return (
     <div className="vehicle-cc-pie-container">
       <div className="vehicle-cc-pie-header">
-        <h2>Vehicle CC Distribution</h2>
+        <h2>Vehicle CC</h2>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Zone</InputLabel>

@@ -28,7 +28,7 @@ const StackedBarChart: React.FC<Props> = ({ data }) => {
       padding={0.3}
       valueScale={{ type: 'linear' }}
       indexScale={{ type: 'band', round: true }}
-      colors={{ scheme: 'nivo' }}
+      colors={{ scheme: 'paired' }}
       defs={[
         {
           id: 'dots',

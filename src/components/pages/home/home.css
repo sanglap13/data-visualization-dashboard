@@ -93,10 +93,11 @@
 }
 
 /* =======================Media Query================== */
-@media (width < 700px) {
+
+@media (width < 935px) {
   .cards-container {
     flex-direction: column;
-    width: 95%;
+    width: 94%;
   }
   .text-message {
     width: 95%;

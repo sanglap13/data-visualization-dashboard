@@ -72,7 +72,7 @@ const SdkIntBar = () => {
   return (
     <div className="sdk-int-bar-container">
       <div className="sdk-int-bar-header">
-        <h2>SDK Int Distribution</h2>
+        <h2>SDK Int</h2>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Zone</InputLabel>

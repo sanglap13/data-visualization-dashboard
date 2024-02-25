@@ -9,6 +9,7 @@ const TopCard = ({ bgColor, title, amount }: any) => {
     <Card className="card" sx={{ backgroundColor: bgColor }}>
       <CardContent>
         <Typography
+          className="card-title"
           sx={{ fontSize: 30, fontWeight: '700' }}
           color="text.secondary"
           gutterBottom

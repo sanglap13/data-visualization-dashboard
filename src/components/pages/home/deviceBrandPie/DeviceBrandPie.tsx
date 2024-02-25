@@ -80,7 +80,7 @@ const DeviceBrandPie = () => {
   return (
     <div className="device-brand-pie-container">
       <div className="device-brand-pie-header">
-        <h2>Device Brand Distribution</h2>
+        <h2>Device Brand</h2>
         <Box sx={{ minWidth: 120 }}>
           <FormControl fullWidth>
             <InputLabel id="demo-simple-select-label">Zone</InputLabel>
