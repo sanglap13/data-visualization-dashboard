@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="cards-container">
-        <div className="text-message">Welcome</div>
+        <div className="text-message">Welcome!!</div>
         {/* <TopCard bgColor={'blue'} /> */}
         <TopCard bgColor={'#f1e15b'} title={'Total Users'} amount={'527'} />
         <TopCard bgColor={'#f47560'} title={'Growth'} amount={'10%'} />

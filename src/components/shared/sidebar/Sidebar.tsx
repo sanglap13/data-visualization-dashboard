@@ -17,7 +17,7 @@ import { SIDEBAR_DETAILS } from '../../../constants/sidebarDetails';
 import { Menu, MenuItem, ProSidebar } from 'react-pro-sidebar';
 import 'react-pro-sidebar/dist/css/styles.css';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { grey } from '@mui/material/colors';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
@@ -32,25 +32,8 @@ import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
-const Item = ({ title, to, icon, selected, setSelected }: any) => {
-  const theme = useTheme();
-
-  return (
-    <MenuItem
-      active={selected === title}
-      style={{
-        color: 'gray',
-      }}
-      onClick={() => setSelected(title)}
-      icon={icon}
-    >
-      <Typography>{title}</Typography>
-      <Link to={to} />
-    </MenuItem>
-  );
-};
-
 const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
+  const navigate = useNavigate();
   // const theme = useTheme();
   // const [isCollapsed, setIsCollapsed] = useState(false);
   // const [selected, setSelected] = useState('');
@@ -71,7 +54,7 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
           ADMIN
         </Typography>
       </Box>
-      <Box mb="200px">
+      <Box mb="100px">
         <Box display="flex" justifyContent="center" alignItems="center">
           <img
             alt="profile-user"
@@ -112,6 +95,18 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
           );
         })}
       </List>
+      <Divider />
+
+      <Typography
+        variant="h4"
+        color="#ffffff"
+        ml="25%"
+        mb="40.5%"
+        mt="106%"
+        overflow="hidden"
+      >
+        ADMIN
+      </Typography>
     </Box>
   );
 };
