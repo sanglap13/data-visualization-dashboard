@@ -71,13 +71,13 @@ const Navbar = () => {
         {/* ICONS */}
         <Box display="flex">
           <IconButton>
-            <NotificationsOutlinedIcon />
+            <NotificationsOutlinedIcon sx={{ color: '#ffffff' }} />
           </IconButton>
           <IconButton>
-            <SettingsOutlinedIcon />
+            <SettingsOutlinedIcon sx={{ color: '#ffffff' }} />
           </IconButton>
           <IconButton>
-            <PersonOutlinedIcon />
+            <PersonOutlinedIcon sx={{ color: '#ffffff' }} />
           </IconButton>
         </Box>
       </Box>

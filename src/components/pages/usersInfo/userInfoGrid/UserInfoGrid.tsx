@@ -3,15 +3,9 @@ import { UserDataGrid } from '../../../shared';
 import { GridColDef } from '@mui/x-data-grid';
 import { UserDataGridInfo } from '../../../../@types/dataGrid.types';
 import { api } from '../../../../utils/api/api';
+import { DATAGRID_COLUMNS } from '../../../../constants/userDataGrid';
 
-const dataGridColumns: GridColDef[] = [
-  { field: 'username', headerName: 'Name', flex: 1 },
-  { field: 'zone', headerName: 'zone', flex: 1 },
-  { field: 'device_brand', headerName: 'device_brand', flex: 1 },
-  { field: 'sdk_int', headerName: 'sdk_int', flex: 1 },
-  { field: 'vehicle_brand', headerName: 'vehicle_brand', flex: 1 },
-  { field: 'vehicle_cc', headerName: 'vehicle_cc', flex: 1 },
-];
+const dataGridColumns: GridColDef[] = DATAGRID_COLUMNS;
 
 const UserInfoGrid = () => {
   const [dataGriduserInfo, setDataGridUserInfo] = useState<UserDataGridInfo[]>(

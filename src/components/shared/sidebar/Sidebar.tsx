@@ -41,8 +41,9 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
     <Box
       sx={{
         width: 250,
+        height: '100%',
         // backgroundColor: '#2D53DA'
-        backgroundColor: '#3781D9',
+        backgroundColor: '#215fab',
       }}
       role="presentation"
       onClick={toggleDrawer(false)}
@@ -50,7 +51,7 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
       <Toolbar />
 
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Typography variant="h4" color="#ffffff" ml="25%" mb="1rem">
+        <Typography variant="h4" color="#ffffff" ml="27%" mb="1rem">
           ADMIN
         </Typography>
       </Box>
@@ -73,7 +74,7 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
           >
             Sanglap Mridha
           </Typography>
-          <Typography variant="h5" color="#e9e9e7">
+          <Typography variant="h5" color="#c2c2bd">
             SDE FE Intern
           </Typography>
         </Box>
@@ -85,11 +86,12 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
           const { label, redirection_link, icon } = text;
           return (
             <ListItem key={label} disablePadding>
+              {/* <ListItemButton onClick={navigate(redirection_link)}> */}
               <ListItemButton>
-                <ListItemIcon>
+                <ListItemIcon sx={{ color: '#c2c2bd' }}>
                   {typeof icon === 'function' ? icon() : icon}
                 </ListItemIcon>
-                <ListItemText primary={label} />
+                <ListItemText sx={{ color: '#c2c2bd' }} primary={label} />
               </ListItemButton>
             </ListItem>
           );
@@ -97,7 +99,7 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
       </List>
       <Divider />
 
-      <Typography
+      {/* <Typography
         variant="h4"
         color="#ffffff"
         ml="25%"
@@ -106,7 +108,7 @@ const Sidebar: React.FC<any> = ({ toggleDrawer }) => {
         overflow="hidden"
       >
         ADMIN
-      </Typography>
+      </Typography> */}
     </Box>
   );
 };
